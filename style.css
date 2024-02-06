@@ -1,22 +1,33 @@
+:root {
+    --primary-color: #007bff;
+    --hover-color: #0056b3;
+    --light-color: #f8f9fa;
+    --transition-speed: 0.3s;
+}
+
 body {
     padding-top: 56px;
     font-family: 'Roboto', sans-serif;
+    background-color: #f0f2f5; /* Adds a subtle background color */
+    color: #333; /* Darker text color for better readability */
 }
 
 .fixed-top {
-    transition: background-color 0.5s ease;
+    transition: background-color var(--transition-speed) ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Adds a subtle shadow to the navbar */
 }
 
 .navbar-scrolled {
-    background-color: #007bff !important;
+    background-color: var(--primary-color) !important;
 }
 
 .nav-link {
     color: #fff;
+    transition: color var(--transition-speed) ease;
 }
 
 .nav-link:hover {
-    color: #f8f9fa;
+    color: var(--light-color);
 }
 
 .hidden {
@@ -24,15 +35,36 @@ body {
 }
 
 .metric-box {
-    border: 1px solid #ccc; /* Add a border for the box */
-    padding: 10px; /* Add padding to the box */
-    margin: 5px; /* Add margin for spacing */
-    text-align: center; /* Center-align the content */
-    border-radius: 8px; /* Add rounded corners */
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    border-radius: 8px;
+    background: linear-gradient(to right, #ffffff, #e9ecef);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform var(--transition-speed) ease-out;
+    height: 300px; /* Set a fixed height for all metric boxes */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Align content vertically */
+}
+
+.metric-box .metric-chart {
+    flex: 1; /* Allow the chart to take up remaining space */
+    max-height: 100%; /* Ensure the chart doesn't exceed the box height */
+}
+
+.metric-box .metric {
+    margin-top: 10px;
+}
+
+.metric-box:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
 }
 
 .question {
     margin-bottom: 20px;
+    font-weight: 600; /* Makes the question text bolder */
 }
 
 .options {
@@ -42,15 +74,18 @@ body {
 .option {
     margin: 5px;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: var(--primary-color);
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color var(--transition-speed) ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Adds a subtle shadow for depth */
 }
 
 .option:hover {
-    background-color: #0056b3;
+    background-color: var(--hover-color);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Enhances shadow on hover for a more pronounced effect */
 }
 
 #results {
@@ -58,11 +93,22 @@ body {
 }
 
 .logo-class {
-    max-width: 100%; /* Ensures the logo doesn't exceed the box width */
-    height: auto; /* Maintains the aspect ratio */
-    margin-bottom: 10px; /* Adds space below the logo */
-    display: block; /* Aligns the image properly */
-    object-fit: contain; /* Ensures the image is scaled correctly within the box */
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    display: block;
+    object-fit: contain;
 }
 
-/* Add additional styles as needed */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+body, .option, .metric-box {
+    animation: fadeIn 1s; /* Applies a fade-in effect to the body, options, and metric boxes */
+}
