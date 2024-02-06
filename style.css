@@ -43,19 +43,24 @@ body {
     background: linear-gradient(to right, #ffffff, #e9ecef);
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: transform var(--transition-speed) ease-out;
-    height: 300px; /* Set a fixed height for all metric boxes */
+    height: 400px; /* Set a fixed height for all metric boxes */
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Align content vertically */
+    text-align: center; /* Center-align text within the box */
 }
 
 .metric-box .metric-chart {
-    flex: 1; /* Allow the chart to take up remaining space */
-    max-height: 100%; /* Ensure the chart doesn't exceed the box height */
+    /* Set the maximum height of the chart canvas */
+    max-height: calc(100% - 40px); /* Subtract padding and margin to fit within the box */
+    width: auto; /* Allow the width to adjust based on the aspect ratio */
 }
 
 .metric-box .metric {
     margin-top: 10px;
+    font-size: 16px; /* Adjust the font size as needed */
+    line-height: 1.2; /* Increase line height for better spacing */
+    padding: 10px; /* Add padding for text within the box */
 }
 
 .metric-box:hover {
