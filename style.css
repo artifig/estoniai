@@ -131,6 +131,21 @@ body {
     object-fit: contain;
 }
 
+/* Style for Logo cells */
+.logo-cell {
+    background-color: #f0f0f0; /* Add a background color */
+    text-align: center; /* Center-align the content */
+    font-weight: bold; /* Make the text bold */
+}
+
+/* Style for Company Name cells */
+.company-name-cell {
+    background-color: #f0f0f0; /* Add a background color */
+    text-align: center; /* Center-align the content */
+    font-weight: bold; /* Make the text bold */
+}
+
+
 @keyframes fadeIn {
     from {
         opacity: 0;
