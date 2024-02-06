@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AI Readiness</title>
+        <!-- Include Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
+    </head>
+    <body>
+
+
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">AI Readiness</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="dashboardLink">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="assessmentLink">Assess</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+<div id="dashboard"> <!-- Wrap company database in a div with id="dashboard" -->
+    <!-- Metrics Dashboards Row -->
+    <div class="row">
+        <div class="col-md-3">
+            <div class="metric-box text-center">
+                <canvas id="totalCompaniesChart" class="metric-chart"></canvas>
+                <br>
+                <div class="metric">
+                    <p>Total Companies</p>
+                    <p id="totalCompanies">203</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="metric-box text-center">
+                <canvas id="averageScoreChart" class="metric-chart"></canvas>
+                <br>
+                <div class="metric">
+                    <p>Avg. AI Readiness</p>
+                    <p id="averageScore">75%</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="metric-box text-center">
+                <canvas id="adoptionRateChart" class="metric-chart"></canvas>
+                <br>
+                <div class="metric">
+                    <p>AI Adoption Rate</p>
+                    <p id="adoptionRate">65%</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="metric-box text-center">
+                <canvas id="impactScoreChart" class="metric-chart"></canvas>
+                <br>
+                <div class="metric">
+                    <p>AI Impact Score</p>
+                    <p id="impactScore">7.8</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- End of #dashboard -->
+<br>
+<!-- Company AI Readiness Database Table -->
+<div class="container-fluid mt-3" id="database">
+    <h4>Company AI Readiness Database</h4>
+    <p>This page displays a list of companies that have completed the AI readiness assessment along with their readiness scores.</p>
+    <div class="table-responsive">
+        <table class="table table-striped" id="companyTable">
+            <thead class="thead-light">
+                <tr>
+                    <th>Logo</th>
+                    <th>Company Name</th>
+                    <th>Industry</th>
+                    <th>Market</th>
+                    <th>Revenue (in millions)</th>
+                    <th>AI Readiness Score</th>
+                    <th>Last Assessment Date</th>
+                    <th>AI Adoption Rate (%)</th>
+                    <th>AI Impact Score</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="https://picsum.photos/64?random=1" alt="Company Logo" style="width: 64px; height: 64px;"></td>
+                    <td>Global Tech</td>
+                    <td>Technology</td>
+                    <td>Global</td>
+                    <td>120</td>
+                    <td>85%</td>
+                    <td>2023-01-15</td>
+                    <td>70%</td>
+                    <td>8.5</td>
+                    <td>Advanced</td>
+                </tr>
+                <tr>
+                    <td><img src="https://picsum.photos/64?random=2" alt="Company Logo" style="width: 64px; height: 64px;"></td>
+                    <td>Enterprise Solutions</td>
+                    <td>Business Services</td>
+                    <td>National</td>
+                    <td>95</td>
+                    <td>78%</td>
+                    <td>2023-02-20</td>
+                    <td>65%</td>
+                    <td>7.9</td>
+                    <td>Intermediate</td>
+                </tr>
+                <tr>
+                    <td><img src="https://picsum.photos/64?random=3" alt="Company Logo" style="width: 64px; height: 64px;"></td>
+                    <td>GreenTech Innovations</td>
+                    <td>Energy</td>
+                    <td>Regional</td>
+                    <td>75</td>
+                    <td>81%</td>
+                    <td>2023-03-05</td>
+                    <td>80%</td>
+                    <td>8.7</td>
+                    <td>Advanced</td>
+                </tr>
+                <tr>
+                    <td><img src="https://picsum.photos/64?random=4" alt="Company Logo" style="width: 64px; height: 64px;"></td>
+                    <td>NextGen Robotics</td>
+                    <td>Manufacturing</td>
+                    <td>Global</td>
+                    <td>150</td>
+                    <td>88%</td>
+                    <td>2023-04-12</td>
+                    <td>75%</td>
+                    <td>9.0</td>
+                    <td>Advanced</td>
+                </tr>
+                <tr>
+                    <td><img src="https://picsum.photos/64?random=5" alt="Company Logo" style="width: 64px; height: 64px;"></td>
+                    <td>DataStream AI</td>
+                    <td>Technology</td>
+                    <td>Global</td>
+                    <td>200</td>
+                    <td>90%</td>
+                    <td>2023-05-22</td>
+                    <td>85%</td>
+                    <td>9.3</td>
+                    <td>Advanced</td>
+                </tr>
+                <tr>
+                    <td><img src="https://picsum.photos/64?random=6" alt="Company Logo" style="width: 64px; height: 64px;"></td>
+                    <td>FinTech Revolution</td>
+                    <td>Finance</td>
+                    <td>International</td>
+                    <td>180</td>
+                    <td>82%</td>
+                    <td>2023-06-18</td>
+                    <td>80%</td>
+                    <td>8.8</td>
+                    <td>Intermediate</td>
+                </tr>
+                <tr>
+                    <td><img src="https://picsum.photos/64?random=7" alt="Company Logo" style="width: 64px; height: 64px;"></td>
+                    <td>EcoSustain</td>
+                    <td>Environment</td>
+                    <td>National</td>
+                    <td>140</td>
+                    <td>75%</td>
+                    <td>2023-07-30</td>
+                    <td>78%</td>
+                    <td>8.2</td>
+                    <td>Intermediate</td>
+                </tr>
+                <tr>
+                    <td><img src="https://picsum.photos/64?random=8" alt="Company Logo" style="width: 64px; height: 64px;"></td>
+                    <td>HealthPlus AI</td>
+                    <td>Healthcare</td>
+                    <td>Global</td>
+                    <td>160</td>
+                    <td>88%</td>
+                    <td>2023-08-15</td>
+                    <td>83%</td>
+                    <td>9.1</td>
+                    <td>Advanced</td>
+                </tr>
+                <tr>
+                    <td><img src="https://picsum.photos/64?random=9" alt="Company Logo" style="width: 64px; height: 64px;"></td>
+                    <td>Quantum Computing Inc.</td>
+                    <td>Technology</td>
+                    <td>International</td>
+                    <td>210</td>
+                    <td>94%</td>
+                    <td>2023-09-12</td>
+                    <td>90%</td>
+                    <td>9.5</td>
+                    <td>Leader</td>
+                </tr>
+                <tr>
+                    <td><img src="https://picsum.photos/64?random=10" alt="Company Logo" style="width: 64px; height: 64px;"></td>
+                    <td>AutoDrive Solutions</td>
+                    <td>Automotive</td>
+                    <td>Global</td>
+                    <td>190</td>
+                    <td>89%</td>
+                    <td>2023-10-20</td>
+                    <td>87%</td>
+                    <td>9.2</td>
+                    <td>Advanced</td>
+                </tr>
+                <tr>
+                    <td><img src="https://picsum.photos/64?random=11" alt="Company Logo" style="width: 64px; height: 64px;"></td>
+                    <td>SmartHome Tech</td>
+                    <td>Consumer Electronics</td>
+                    <td>International</td>
+                    <td>170</td>
+                    <td>84%</td>
+                    <td>2023-11-29</td>
+                    <td>81%</td>
+                    <td>8.9</td>
+                    <td>Intermediate</td>
+                </tr>
+                <tr>
+                    <td><img src="https://picsum.photos/64?random=12" alt="Company Logo" style="width: 64px; height: 64px;"></td>
+                    <td>Blockchain Basics</td>
+                    <td>Finance</td>
+                    <td>Global</td>
+                    <td>130</td>
+                    <td>80%</td>
+                    <td>2023-12-17</td>
+                    <td>76%</td>
+                    <td>8.4</td>
+                    <td>Intermediate</td>
+                </tr>
+                <tr>
+                    <td><img src="https://picsum.photos/64?random=13" alt="Company Logo" style="width: 64px; height: 64px;"></td>
+                    <td>AgriTech Farming</td>
+                    <td>Agriculture</td>
+                    <td>Regional</td>
+                    <td>110</td>
+                    <td>77%</td>
+                    <td>2024-01-05</td>
+                    <td>73%</td>
+                    <td>8.1</td>
+                    <td>Emerging</td>
+                </tr>
+                <tr>
+                    <td><img src="https://picsum.photos/64?random=14" alt="Company Logo" style="width: 64px; height: 64px;"></td>
+                    <td>CyberSecurity 360</td>
+                    <td>Technology</td>
+                    <td>International</td>
+                    <td>155</td>
+                    <td>86%</td>
+                    <td>2024-02-22</td>
+                    <td>82%</td>
+                    <td>8.7</td>
+                    <td>Advanced</td>
+                </tr>                                        
+                <!-- Repeat for more companies, changing details as necessary -->
+            </tbody>
+            
+        </table>
+    </div>
+</div>
+
+<div class="container mt-3 hidden" id="assessment">
+    <h2>Assess AI Readiness</h2>
+    <form id="initialForm" class="mb-3">
+        <div class="form-group">
+            <label for="userName">Your Name:</label>
+            <input type="text" class="form-control" id="userName" required>
+        </div>
+        <div class="form-group">
+            <label for="companyName">Company Name:</label>
+            <input type="text" class="form-control" id="companyName" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Start Assessment</button>
+    </form>
+    <div class="hidden" id="questionnaire">
+        <!-- Questions -->
+        <div class="question">
+            <p>How would you describe your organization's current AI strategy?</p>
+            <div class="options">
+                <button type="button" class="btn option" data-score="1">No defined strategy</button>
+                <button type="button" class="btn option" data-score="2">Exploratory stage</button>
+                <button type="button" class="btn option" data-score="3">Partially implemented</button>
+                <button type="button" class="btn option" data-score="4">Fully implemented</button>
+            </div>
+        </div>
+        <div class="question hidden">
+            <p>How would you describe your organization's current AI strategy?</p>
+            <div class="options">
+                <button type="button" class="btn option" data-score="1">No defined strategy</button>
+                <button type="button" class="btn option" data-score="2">Exploratory stage</button>
+                <button type="button" class="btn option" data-score="3">Partially implemented</button>
+                <button type="button" class="btn option" data-score="4">Fully implemented</button>
+            </div>
+        </div>
+        <div class="question hidden">
+            <p>How would you describe your organization's current AI strategy?</p>
+            <div class="options">
+                <button type="button" class="btn option" data-score="1">No defined strategy</button>
+                <button type="button" class="btn option" data-score="2">Exploratory stage</button>
+                <button type="button" class="btn option" data-score="3">Partially implemented</button>
+                <button type="button" class="btn option" data-score="4">Fully implemented</button>
+            </div>
+        </div>
+        <!-- Additional questions -->
+    </div>
+    <div id="progress" class="hidden">
+        <h4>Score: <span id="currentScore">0%</span></h4>
+        <h4>Question <span id="currentQuestionNumber">1</span> of <span id="totalQuestions"></span></h4>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 0%;" id="progressBar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+    </div>
+    <div id="results" class="hidden">
+        <h3>Your AI Readiness Score: <span id="score">0</span></h3>
+    </div>
+</div>
+
+<!-- Include Bootstrap JavaScript and jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script> <!-- Your custom JavaScript file -->
+
+</body>
+</html>

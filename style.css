@@ -1,0 +1,61 @@
+body {
+    padding-top: 56px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.fixed-top {
+    transition: background-color 0.5s ease;
+}
+
+.navbar-scrolled {
+    background-color: #007bff !important;
+}
+
+.nav-link {
+    color: #fff;
+}
+
+.nav-link:hover {
+    color: #f8f9fa;
+}
+
+.hidden {
+    display: none;
+}
+
+.metric-box {
+    border: 1px solid #ccc; /* Add a border for the box */
+    padding: 10px; /* Add padding to the box */
+    margin: 5px; /* Add margin for spacing */
+    text-align: center; /* Center-align the content */
+    border-radius: 8px; /* Add rounded corners */
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+.options {
+    margin-top: 10px;
+}
+
+.option {
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.option:hover {
+    background-color: #0056b3;
+}
+
+#results {
+    margin-top: 20px;
+}
+
+
+/* Add additional styles as needed */
