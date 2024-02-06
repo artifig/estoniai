@@ -297,26 +297,69 @@
                 <button type="button" class="btn option" data-score="4">Fully implemented</button>
             </div>
         </div>
+        <!-- Additional questions -->
         <div class="question hidden">
-            <p>How would you describe your organization's current AI strategy?</p>
+            <p>What is the primary goal of implementing AI in your organization?</p>
             <div class="options">
-                <button type="button" class="btn option" data-score="1">No defined strategy</button>
-                <button type="button" class="btn option" data-score="2">Exploratory stage</button>
-                <button type="button" class="btn option" data-score="3">Partially implemented</button>
-                <button type="button" class="btn option" data-score="4">Fully implemented</button>
+                <button type="button" class="btn option" data-score="1">Cost reduction</button>
+                <button type="button" class="btn option" data-score="2">Improved customer experience</button>
+                <button type="button" class="btn option" data-score="3">Increased revenue</button>
+                <button type="button" class="btn option" data-score="4">Innovation and new opportunities</button>
             </div>
         </div>
+
         <div class="question hidden">
-            <p>How would you describe your organization's current AI strategy?</p>
+            <p>How would you rate the level of expertise in AI within your organization?</p>
             <div class="options">
-                <button type="button" class="btn option" data-score="1">No defined strategy</button>
-                <button type="button" class="btn option" data-score="2">Exploratory stage</button>
-                <button type="button" class="btn option" data-score="3">Partially implemented</button>
-                <button type="button" class="btn option" data-score="4">Fully implemented</button>
+                <button type="button" class="btn option" data-score="1">Low</button>
+                <button type="button" class="btn option" data-score="2">Intermediate</button>
+                <button type="button" class="btn option" data-score="3">High</button>
             </div>
         </div>
+
+        <div class="question hidden">
+            <p>What is the main obstacle to AI adoption in your organization?</p>
+            <div class="options">
+                <button type="button" class="btn option" data-score="1">Lack of budget</button>
+                <button type="button" class="btn option" data-score="2">Lack of skilled personnel</button>
+                <button type="button" class="btn option" data-score="3">Data privacy concerns</button>
+                <button type="button" class="btn option" data-score="4">Integration challenges</button>
+            </div>
+        </div>
+
+        <div class="question hidden">
+            <p>How do you measure the success of AI initiatives in your organization?</p>
+            <div class="options">
+                <button type="button" class="btn option" data-score="1">No clear metrics</button>
+                <button type="button" class="btn option" data-score="2">ROI and cost savings</button>
+                <button type="button" class="btn option" data-score="3">Customer satisfaction and retention</button>
+                <button type="button" class="btn option" data-score="4">Innovation and new product development</button>
+            </div>
+        </div>
+
         <!-- Additional questions -->
     </div>
+
+    <!-- Information Page -->
+    <div id="information" class="modal fade hidden" tabindex="-1" role="dialog" aria-labelledby="informationsLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="informationLabel">AI Readiness Assessment Results</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Boxes with Proposed Actions based on Score -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="progress" class="hidden">
         <h4>Score: <span id="currentScore">0%</span></h4>
         <h4>Question <span id="currentQuestionNumber">1</span> of <span id="totalQuestions"></span></h4>

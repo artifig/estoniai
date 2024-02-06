@@ -57,5 +57,12 @@ body {
     margin-top: 20px;
 }
 
+.logo-class {
+    max-width: 100%; /* Ensures the logo doesn't exceed the box width */
+    height: auto; /* Maintains the aspect ratio */
+    margin-bottom: 10px; /* Adds space below the logo */
+    display: block; /* Aligns the image properly */
+    object-fit: contain; /* Ensures the image is scaled correctly within the box */
+}
 
 /* Add additional styles as needed */

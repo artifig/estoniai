@@ -27,12 +27,7 @@ $(document).ready(function() {
     const totalQuestions = questions.length;
 
     // Update total questions display
-    $("#totalQuestions").text(totalQuestions);
-
-    $("#initialForm").submit(function(e) {
-        e.preventDefault(); // Prevent the default form submission
-        startAssessment();
-    });    
+    $("#totalQuestions").text(totalQuestions);   
 
     function showDashboard() {
         $('#dashboard').removeClass('hidden');
@@ -120,6 +115,80 @@ $(document).ready(function() {
         $("#questionnaire").addClass('hidden'); // Ensure the questionnaire is hidden
         $("#results").removeClass('hidden');
         $("#score").text(calculateScore() + "%"); // Show final score
+        
+        // Trigger the information modal with the calculated score
+        showInformation(calculateScore());
+        console.log("Assessment finished...");
+    }
+
+    // Function to display the information modal with content based on the score
+    function showInformation(score) {
+        console.log("Showing information with score:", score);
+
+        // Set the score in the modal
+        console.log("Final score to display in modal:", parseFloat(score).toFixed(2));
+        $("#finalScore").text(parseFloat(score).toFixed(2)); // Assuming score is a number and you want to format it to 2 decimal places
+
+        // Determine which actions to propose based on the score
+        let actions = [];
+        if (score >= 80) {
+            actions.push({ 
+                title: "Contact AIRE", 
+                description: "For pioneering AI integration.", 
+                logo: "https://teaduspark.ee/wp-content/uploads/2021/11/AIRE_logo_black_background.png"
+            });
+        }
+        if (score >= 60 && score < 80) {
+            actions.push({ 
+                title: "Contact Tartu Science Park", 
+                description: "For AI research and collaboration opportunities.", 
+                logo: "https://teaduspark.ee/wp-content/uploads/2023/09/SPARKUP-2.png"
+            });
+        }
+        if (score >= 40 && score < 60) {
+            actions.push({ 
+                title: "Contact Science Park Tehnopol", 
+                description: "For startup support and innovation.", 
+                logo: "https://www.tehnopol.ee/wp-content/uploads/2021/01/Tehnopol_logo_RGB.png"
+            });
+        }
+        if (score < 40) {
+            actions.push({ 
+                title: "Contact Innovate Estonia", 
+                description: "For digitalisation and business services.", 
+                logo: "https://brand.estonia.ee/wp-content/uploads/2020/11/EAS_RGB_White.jpg"
+            });
+        }
+    
+        const modal = $("#information");
+        const modalBody = modal.find(".modal-body");
+    
+        modalBody.empty(); // Clear previous content
+
+        console.log("Cleared modal body");
+    
+        actions.forEach((action) => {
+            const actionBox = $("<div>").addClass("action-box");
+            const box = $("<div>").addClass("box");
+            const img = $("<img>").attr("src", action.logo).addClass("logo-class"); // Create an <img> element and set its src
+            const title = $("<h4>").text(action.title);
+            const description = $("<p>").text(action.description);
+            modalBody.append($("<h4>").text(`AI Readiness Score: ${parseFloat(score).toFixed(2)}%`));
+            modalBody.append($("<p>").text(`Review the recommended actions below based on your score.`));
+            box.append(img, title, description); // Append the img element here
+            actionBox.append(box);
+            modalBody.append(actionBox);
+        });        
+        
+        modal.modal("show");
+        console.log("Modal displayed");
+    }
+    
+
+    // Call this function when the questionnaire finishes (e.g., in your finishAssessment() function)
+    function onQuestionnaireFinish(score) {
+        // Display the information modal with proposed actions based on the score
+        showInformation(score);
     }
 
     function initializeCharts() {
