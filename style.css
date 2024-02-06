@@ -34,6 +34,18 @@ body {
     display: none;
 }
 
+.large-number {
+    font-size: 50px; /* Adjust the font size as needed */
+    font-weight: bold; /* Make it bold for emphasis */
+    margin: 0; /* Remove any default margin */
+}
+
+.medium-number {
+    font-size: 30px; /* Adjust the font size as needed */
+    font-weight: bold; /* Make it bold for emphasis */
+    margin: 0; /* Remove any default margin */
+}
+
 .metric-box {
     border: 1px solid #ccc;
     padding: 10px;
@@ -44,23 +56,37 @@ body {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: transform var(--transition-speed) ease-out;
     height: 400px; /* Set a fixed height for all metric boxes */
+
+    /* Use flexbox to arrange items vertically */
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Align content vertically */
-    text-align: center; /* Center-align text within the box */
+}
+
+.metric-box .metric-header {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.2;
+    padding: 10px;
+}
+
+.metric-box .metric-subheader {
+    font-size: 16px;
+    line-height: 1.2;
+    padding: 10px;
+}
+
+.metric-box .metric-chart-container {
+    /* Ensure the container takes up space at the bottom */
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Center the canvas horizontally */
+    align-items: flex-end; /* Align the canvas to the bottom */
 }
 
 .metric-box .metric-chart {
-    /* Set the maximum height of the chart canvas */
-    max-height: calc(100% - 40px); /* Subtract padding and margin to fit within the box */
-    width: auto; /* Allow the width to adjust based on the aspect ratio */
-}
-
-.metric-box .metric {
-    margin-top: 10px;
-    font-size: 16px; /* Adjust the font size as needed */
-    line-height: 1.2; /* Increase line height for better spacing */
-    padding: 10px; /* Add padding for text within the box */
+    max-height: 100%; /* Ensure it doesn't exceed the container height */
+    width: auto;
 }
 
 .metric-box:hover {
