@@ -135,28 +135,32 @@ $(document).ready(function() {
             actions.push({ 
                 title: "Contact AIRE", 
                 description: "For pioneering AI integration.", 
-                logo: "https://teaduspark.ee/wp-content/uploads/2021/11/AIRE_logo_black_background.png"
+                logo: "https://teaduspark.ee/wp-content/uploads/2021/11/AIRE_logo_black_background.png",
+                url: "https://aire-edih.eu/teenus/tehisintellekti-otstarbekuse-noustamine/"
             });
         }
         if (score >= 60 && score < 80) {
             actions.push({ 
                 title: "Contact Tartu Science Park", 
                 description: "For AI research and collaboration opportunities.", 
-                logo: "https://teaduspark.ee/wp-content/uploads/2023/09/SPARKUP-2.png"
+                logo: "https://teaduspark.ee/wp-content/uploads/2023/09/SPARKUP-2.png",
+                url: "https://teaduspark.ee"
             });
         }
         if (score >= 40 && score < 60) {
             actions.push({ 
                 title: "Contact Science Park Tehnopol", 
                 description: "For startup support and innovation.", 
-                logo: "https://www.tehnopol.ee/wp-content/uploads/2021/01/Tehnopol_logo_RGB.png"
+                logo: "https://www.tehnopol.ee/wp-content/uploads/2021/01/Tehnopol_logo_RGB.png",
+                url: "https://ai.tehnopol.ee"
             });
         }
         if (score < 40) {
             actions.push({ 
                 title: "Contact Innovate Estonia", 
                 description: "For digitalisation and business services.", 
-                logo: "https://brand.estonia.ee/wp-content/uploads/2020/11/EAS_RGB_White.jpg"
+                logo: "https://brand.estonia.ee/wp-content/uploads/2020/11/EAS_RGB_White.jpg",
+                url: "https://eas.ee/teenused/digimeistriklass/"
             });
         }
     
@@ -171,7 +175,7 @@ $(document).ready(function() {
             const actionBox = $("<div>").addClass("action-box");
             const box = $("<div>").addClass("box");
             const img = $("<img>").attr("src", action.logo).addClass("logo-class"); // Create an <img> element and set its src
-            const title = $("<h4>").text(action.title);
+            const title = $("<a>").attr("href", action.url).text(action.title).addClass("action-title");
             const description = $("<p>").text(action.description);
             modalBody.append($("<h4>").text(`AI Readiness Score: ${parseFloat(score).toFixed(2)}%`));
             modalBody.append($("<p>").text(`Review the recommended actions below based on your score.`));
